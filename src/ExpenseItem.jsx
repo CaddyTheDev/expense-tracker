@@ -13,6 +13,7 @@ function ExpenseItem({ expense, index, onDeleteExpense }) {
           <span className="amount-span">
             ₦{expense.amount.toLocaleString()}.00
           </span>
+          <span className="date-span">{expense.dateTime.toLocaleString()}</span>
           <button className="delete-button" onClick={handleDeleteExpense}>
             Delete
           </button>

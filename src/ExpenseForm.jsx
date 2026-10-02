@@ -28,13 +28,18 @@ function ExpenseForm({ onAddExpense }) {
     if (title === "" || amount === "" || category === "") {
       return;
     }
-    console.log({ title, amount, category, date });
 
-    onAddExpense({ title, amount, category, date });
+    const now = new Date();
+
+    const dateTime = new Date(`${date}T${now.toTimeString().slice(0, 8)}`);
+
+    console.log({ title, amount, category, dateTime });
+
+    onAddExpense({ title, amount, category, dateTime });
     setTitle("");
     setAmount("");
     setCategory("");
-    setDate(new Date().toISOString().slice(0, 10));
+    setDate("");
   }
 
   return (
@@ -46,15 +51,17 @@ function ExpenseForm({ onAddExpense }) {
         value={title}
         placeholder="Expense"
         onChange={handleTitleChange}
+        required
       />
       <br />
 
-      <label>Amount</label>
+      <label>Amount (₦)</label>
       <input
         type="number"
         value={amount}
         placeholder="Expense amount"
         onChange={handleAmountChange}
+        required
       />
 
       <label>Category</label>
@@ -62,6 +69,7 @@ function ExpenseForm({ onAddExpense }) {
         className="category-select"
         value={category}
         onChange={handleCategoryChange}
+        required
       >
         <option value="">Select Category</option>
         <option value="Food">Food</option>
@@ -74,7 +82,7 @@ function ExpenseForm({ onAddExpense }) {
       </select>
 
       <label>Date</label>
-      <input type="date" value={date} onChange={handleDateChange} />
+      <input type="date" value={date} onChange={handleDateChange} required />
 
       <button type="submit" className="add-expense">
         Add Expense

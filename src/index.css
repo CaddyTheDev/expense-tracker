@@ -209,7 +209,11 @@ body {
   font-weight: 600;
   min-width: 100px;
 }
-
+.date-span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 9px;
+  min-width: 100px;
+}
 .delete-button {
   padding: 10px 20px;
   border: none;
@@ -223,4 +227,54 @@ body {
 
 .delete-button:hover {
   background: #f0e9f7;
+}
+
+.span-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px 8px 20px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.span-header .header-title {
+  min-width: 100px;
+}
+
+.span-header .header-category {
+  min-width: 80px;
+}
+
+.span-header .header-amount {
+  min-width: 100px;
+}
+.span-header .header-date {
+  min-width: 100px;
+}
+.span-header .header-delete {
+  min-width: 62px;
+}
+
+/* This code handles responsiveness for mobile */
+@media (max-width: 700px) {
+  .expense-form {
+    margin-left: 70px;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .expense-container {
+    flex-direction: column;
+  }
+  .expense-summary {
+    margin: 0px;
+    width: 500px;
+  }
+
+  .expense-form {
+    flex: 1;
+    width: 100%;
+  }
 }
